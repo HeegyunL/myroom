@@ -1,0 +1,12 @@
+package com.example.myBlog.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.myBlog.model.Blog;
+
+@Repository
+public interface blogRepository extends JpaRepository<Blog, Long>{
+	
+
+}

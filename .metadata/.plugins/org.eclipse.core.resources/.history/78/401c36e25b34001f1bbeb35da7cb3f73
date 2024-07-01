@@ -1,0 +1,18 @@
+package com.example.myBlog;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MyBlogApplication {
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(MyBlogApplication.class);
+	}
+	
+	public static void main(String[] args) {
+		SpringApplication.run(MyBlogApplication.class, args);
+	}
+
+}

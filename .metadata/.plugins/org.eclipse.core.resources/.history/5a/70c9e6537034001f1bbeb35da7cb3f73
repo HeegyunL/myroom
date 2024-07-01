@@ -1,0 +1,35 @@
+package com.example.myBlog.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.example.myBlog.repository.BlogRepository;
+
+@Controller
+public class mainController {
+	private BlogRepository blogRepo;
+	
+	@Autowired
+	public ma
+	
+	
+	@GetMapping("/")
+	public ModelAndView home() {
+		ModelAndView modelAndView  = new ModelAndView();
+		
+		modelAndView.setViewName("/index");
+		return modelAndView;
+	}
+	
+//	조회
+	@RequestMapping(value="/")
+//	추가
+//	수정
+//	삭제
+	@GetMapping("/test")
+	public String test() {
+		return "/test";
+	}
+
+}

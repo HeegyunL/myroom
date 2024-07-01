@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+    <libraryInfo home="/Users/hee/Library/Java/JavaVirtualMachines/graalvm-jdk-17.0.11/Contents/Home" version="17.0.11"/>
+    <libraryInfo home="/Users/hee/Library/Java/JavaVirtualMachines/openjdk-22.0.1/Contents/Home" version="22.0.1"/>
+    <libraryInfo home="/Users/hee/Library/Java/JavaVirtualMachines/azul-17.0.11/Contents/Home" version="17.0.11"/>
+    <libraryInfo home="/Users/hee/Library/Java/JavaVirtualMachines/corretto-11.0.23/Contents/Home" version="11.0.23"/>
+    <libraryInfo home="/Users/hee/Library/Java/JavaVirtualMachines/azul-1.8.0_412/Contents/Home" version="1.8.0_412">
+        <bootpath>
+            <entry path="/Users/hee/Library/Java/JavaVirtualMachines/azul-1.8.0_412/Contents/Home/jre/lib/resources.jar"/>
+            <entry path="/Users/hee/Library/Java/JavaVirtualMachines/azul-1.8.0_412/Contents/Home/jre/lib/rt.jar"/>
+            <entry path="/Users/hee/Library/Java/JavaVirtualMachines/azul-1.8.0_412/Contents/Home/jre/lib/sunrsasign.jar"/>
+            <entry path="/Users/hee/Library/Java/JavaVirtualMachines/azul-1.8.0_412/Contents/Home/jre/lib/jsse.jar"/>
+            <entry path="/Users/hee/Library/Java/JavaVirtualMachines/azul-1.8.0_412/Contents/Home/jre/lib/jce.jar"/>
+            <entry path="/Users/hee/Library/Java/JavaVirtualMachines/azul-1.8.0_412/Contents/Home/jre/lib/charsets.jar"/>
+            <entry path="/Users/hee/Library/Java/JavaVirtualMachines/azul-1.8.0_412/Contents/Home/jre/lib/jfr.jar"/>
+            <entry path="/Users/hee/Library/Java/JavaVirtualMachines/azul-1.8.0_412/Contents/Home/jre/lib/cat.jar"/>
+            <entry path="/Users/hee/Library/Java/JavaVirtualMachines/azul-1.8.0_412/Contents/Home/jre/classes"/>
+        </bootpath>
+        <extensionDirs>
+            <entry path="/Users/hee/Library/Java/Extensions"/>
+            <entry path="/Users/hee/Library/Java/JavaVirtualMachines/azul-1.8.0_412/Contents/Home/jre/lib/ext"/>
+            <entry path="/Library/Java/Extensions"/>
+            <entry path="/Network/Library/Java/Extensions"/>
+            <entry path="/System/Library/Java/Extensions"/>
+            <entry path="/usr/lib/java"/>
+        </extensionDirs>
+        <endorsedDirs>
+            <entry path="/Users/hee/Library/Java/JavaVirtualMachines/azul-1.8.0_412/Contents/Home/jre/lib/endorsed"/>
+        </endorsedDirs>
+    </libraryInfo>
+    <libraryInfo home="/Users/hee/Library/Java/JavaVirtualMachines/corretto-21.0.3/Contents/Home" version="21.0.3"/>
+</libraryInfos>
