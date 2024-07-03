@@ -1,0 +1,18 @@
+.frame-bg{
+width:80%
+}
+
+ #columns{
+        column-count: 3;
+  }
+
+
+#columns figure img{
+  width:100%;
+  border : 1px solid #eeeeee;
+    border-radius:5px;
+  }
+img:hover{
+ transform: scale(1.2);
+ cursor:pointer;
+}

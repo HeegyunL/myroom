@@ -1,0 +1,14 @@
+#news-card-frame{
+width:100%; height:8rem; border:1px solid #cecece;box-shadow:1px 1px 2px #cecece;border-radius:10px;
+
+}
+
+#news-card-frame:hover{
+transform :scale(1.02);}
+
+ #news-card-image {background-repeat : no-repeat;
+        background-size : cover;
+
+        	background-repeat: no-repeat;
+
+        }
