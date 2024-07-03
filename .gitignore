@@ -4,4 +4,4 @@ appengine-generated/
 servers/
 
 *.pem
-apllication.properties
+application.properties
