@@ -4,4 +4,4 @@ appengine-generated/
 servers/
 
 *.pem
-application.properties
+myroom/**/application.properties
