@@ -5,10 +5,8 @@ import com.example.myroom.repository.BlogRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,40 +21,48 @@ public class MainController {
 	}
 
 	@GetMapping("/")
-	public ModelAndView home() {
+	public String home() {
 		ModelAndView mav = new ModelAndView();
 		List<Blog> blogList = blogRepo.findAll();
 
-		mav.setViewName("/index");
-		return mav;
+		mav.setViewName("index");
+		return "index";
 	}
 	@GetMapping("/work")
-	public ModelAndView work() {
+	public String work() {
 		ModelAndView mav = new ModelAndView();
 		List<Blog> blogList = blogRepo.findAll();
 
-		mav.setViewName("/services/work");
-		return mav;
+		mav.setViewName("services/work");
+		return "services/work";
 	}
 	@GetMapping("/gallery")
-	public ModelAndView gallery() {
+	public String gallery() {
 		ModelAndView mav = new ModelAndView();
 		List<Blog> blogList = blogRepo.findAll();
 
-		mav.setViewName("/services/gallery");
-		return mav;
+		mav.setViewName("services/gallery");
+		return "services/gallery";
 	}
 	@GetMapping("/news")
-	public ModelAndView news() {
+	public String news() {
 		ModelAndView mav = new ModelAndView();
 		List<Blog> blogList = blogRepo.findAll();
 
-		mav.setViewName("/services/news");
-		return mav;
+		mav.setViewName("services/news");
+		return "services/news";
 	}
+	@GetMapping("/sign-in")
+    public String login() {
+        ModelAndView mav = new ModelAndView();
+
+        mav.setViewName("services/signIn");
+        return "services/signIn";
+    }
+
 
 	@PostMapping("/work/add")
-	public ModelAndView blogAdd(Blog blog) throws IOException {
+	public String blogAdd(Blog blog) throws IOException {
 		ModelAndView mav = new ModelAndView();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date nowDate = new Date();
@@ -65,8 +71,8 @@ public class MainController {
 
 		Blog addBlog = blogRepo.save(blog);
 
-		mav.setViewName("/index");
-		return mav;
+		mav.setViewName("index");
+		return "index";
 	}
 
 }
