@@ -20,10 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class newsController {
@@ -48,8 +45,20 @@ public class newsController {
             //List안에 map형식으로 받아야 한다. [{"":"","":""},{"":"","":""}]형식이기
             List<Map<String, String>> instaMap = objectMapper.readValue(data, List.class);
 
+            //timestamp(작성 시간) 순서에 따라 정렬
+            instaMap.sort(Comparator.comparing(
+                    (Map<String,String> map )-> (String)map.get("timestamp")).reversed());
+//          여러 컬럼을 조건으로 정렬
+//            list.sort(
+//                    Comparator.comparing(
+//                            (Map<String, Object> map) -> (String)map.get("username")
+//                    ).thenComparing(
+//                            (Map<String, Object> map) -> (String)map.get("ID")
+//                    ).reversed()
+//            );
+//
+
             model.addAttribute("data", instaMap);
-            System.out.println(instaMap);
         } catch (HttpClientErrorException e) {
             model.addAttribute("error", "Failed to fetch data from Apify: " + e.getStatusCode() + " " + e.getResponseBodyAsString());
         } catch (JsonProcessingException e) {

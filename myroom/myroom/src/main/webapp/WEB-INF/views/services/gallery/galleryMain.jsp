@@ -14,12 +14,6 @@
 </style>
 </head>
 <body>
-<script>
-     var msg = "<c:out value='${data}' />"
-
-
-     alert(msg);
- </script>
 <!-- header start-->
 <jsp:include page="../../common/header.jsp" />
 <!-- header end-->
