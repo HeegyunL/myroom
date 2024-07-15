@@ -26,7 +26,7 @@
         <article>
             <div class="container">
                 <ul style="list-style:none;">
-                <c:forEach items="${data}" var="data" begin="26" end="33">
+                <c:forEach items="${data}" var="data"  >
                     <li class="mb-3">
                         <div id="news-card-frame" class=" d-flex post" style="">
                             <div id="news-card-image" style="width:25%;background-image:url('${data.displayUrl}');" class=" bg-secondary"></div>

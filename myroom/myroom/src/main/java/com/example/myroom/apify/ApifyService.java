@@ -1,18 +1,19 @@
 package com.example.myroom.apify;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 @Service
 public class ApifyService {
-    private static final String APIFY_API_URL = "https://api.apify.com/v2/datasets/pvcdbmi3YLtjgf4Qk/items?token=apify_api_6GQEPmak13Y0FbepwfMWQpkYdzl7j70xYT2J";
 
-    public String fetchData(){
+
+    public String fetchData(@Value("${APIFY_API_URL}") String apify){
         RestTemplate restTemplate = new RestTemplate();
 
         try {
-            return restTemplate.getForObject(APIFY_API_URL, String.class);
+            return restTemplate.getForObject(apify, String.class);
         } catch (HttpClientErrorException e) {
             // 예외 처리
             System.out.println("Error occurred while fetching data from Apify: " + e.getMessage());

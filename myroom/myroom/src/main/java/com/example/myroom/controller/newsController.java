@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,11 +38,11 @@ public class newsController {
 
 
     @GetMapping("/news")
-    public ModelAndView news(Model model) {
+    public ModelAndView news(Model model,@Value("${APIFY_API_URL}") String apify) {
         ModelAndView mav = new ModelAndView();
 
         try {
-            String data = apifyService.fetchData();
+            String data = apifyService.fetchData(apify);
             ObjectMapper objectMapper = new ObjectMapper();
 
             //List안에 map형식으로 받아야 한다. [{"":"","":""},{"":"","":""}]형식이기
@@ -61,10 +62,10 @@ public class newsController {
         return mav;
     }
     @GetMapping("/fetchData")
-    public String fetchData(Model model) {
+    public String fetchData(Model model,@Value("${APIFY_API_URL}") String apify) {
 
         try {
-            String data = apifyService.fetchData();
+            String data = apifyService.fetchData(apify);
             ObjectMapper objectMapper = new ObjectMapper();
 
             //List안에 map형식으로 받아야 한다. [{"":"","":""},{"":"","":""}]형식이기
