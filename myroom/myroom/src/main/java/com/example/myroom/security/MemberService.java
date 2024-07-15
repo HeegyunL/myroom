@@ -9,6 +9,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -19,13 +22,15 @@ public class MemberService {
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final JwtTokenProvider jwtTokenProvider;
     private final PasswordEncoder passwordEncoder;
+
+
     @Transactional
-    public JwtToken signIn(String username, String password) {
+    public JwtToken signIn(String memberId, String password) {
 
         //1.username / password 로 Authentication 객체 생성
         //authentication 인증 여부를 확인하는 authenticated 값은 false
         UsernamePasswordAuthenticationToken authenticationToken =
-                new UsernamePasswordAuthenticationToken(username, password);
+                new UsernamePasswordAuthenticationToken(memberId, password);
 
         //2. 검증 / authenticate() 메서드를 통해 요청된 Member 에 대한 검증 진행
         //authenticate 메서드가 실행될 때 CustomUserDeTailsService에서 만든 loadUserByUsername 메서드 실행
@@ -38,5 +43,16 @@ public class MemberService {
         return jwtToken;
     }
 
+    @Transactional
+    public MemberDto signUp(SignUpDto signUpDto) {
+        if (memberRepository.existsByMemberId(signUpDto.getMemberId())) {
+            throw new IllegalArgumentException("already exists");
+        }
+        //password 암호화
+        String encodedPassword = passwordEncoder.encode(signUpDto.getPassword());
+        List<String> roles = new ArrayList<>();
+        roles.add("USER");
+        return MemberDto.toDto(memberRepository.save(signUpDto.toEntity(encodedPassword, roles)));
+    }
 
 }

@@ -16,17 +16,17 @@
 
         <!-- 작성 페이지 -->
         <article >
-          <form class="was-validated" action="/members/sign-in" method="post" enctype="multipart/form-data">
+          <form class="was-validated" action="/members/login" method="post" >
               <div class="mb-3">
-                <label for="username" class="form-label">Title</label>
-                <textarea class="form-control" name="username" id="username" placeholder="Required example textarea" required></textarea>
+                <label for="memberId" class="form-label">Title</label>
+                <textarea class="form-control" name="memberId" id="memberId" placeholder="Required example textarea" required></textarea>
                 <div class="invalid-feedback">
                   Please enter a message in the ID.
                 </div>
               </div>
             <div class="mb-3" >
               <label for="password" class="form-label" >Textarea</label>
-              <textarea style="min-height:15rem" name="password" class="form-control" id="password" placeholder="Required example textarea" required></textarea>
+              <textarea style="min-height:15rem" type="password" name="password" class="form-control" id="password" placeholder="Required example textarea" required></textarea>
               <div class="invalid-feedback">
                 Please enter a message in the password.
               </div>

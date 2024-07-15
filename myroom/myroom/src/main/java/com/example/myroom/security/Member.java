@@ -14,17 +14,13 @@ import java.util.stream.Collectors;
 
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode(of = "id")
 public class Member implements UserDetails {
     @Id
-    @Column(name = "member_id", updatable = false, unique = true, nullable = false)
-    private Long id;
-
-    @Column(nullable = false)
-    private String username;
+    @Column(updatable = false, unique = true, nullable = false)
+    private String memberId;
 
     @Column(nullable = false)
     private String password;
@@ -32,11 +28,21 @@ public class Member implements UserDetails {
     @ElementCollection(fetch = FetchType.EAGER)
     @Builder.Default
     private List<String> roles = new ArrayList<>();
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.roles.stream()
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
+    }
+    @Override
+    public String getUsername() {
+        return memberId;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
     }
 
     @Override

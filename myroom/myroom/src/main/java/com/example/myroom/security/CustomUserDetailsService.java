@@ -1,6 +1,7 @@
 package com.example.myroom.security;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,13 +12,14 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
-
+    @Autowired
     private final MemberRepository memberRepository;
+
     private final PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return memberRepository.findByUsername(username)
+        return memberRepository.findByMemberId(username)
                 .map(this::createUserDetails)
                 .orElseThrow(()-> new UsernameNotFoundException("해당하는 회원을 찾을 수 없습니다. ")) ;
     }

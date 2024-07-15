@@ -53,7 +53,7 @@ public class JwtTokenProvider {
 
         //refreshToken 생성
         String refreshToken = Jwts.builder()
-                .setExpiration(accessTokenExpiresIn)
+                .setExpiration(new Date(now + 86400000))
                 .signWith(key,SignatureAlgorithm.HS256)
                 .compact();
 
@@ -85,7 +85,7 @@ public class JwtTokenProvider {
     }
 
     //토큰 정보 검증
-    public boolean vaildateToken(String token) {
+    public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder()
                     .setSigningKey(key)

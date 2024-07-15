@@ -8,7 +8,7 @@ transform :scale(1.02);}
 
  #news-card-image {background-repeat : no-repeat;
         background-size : cover;
-
+        background-position:center;
         	background-repeat: no-repeat;
 
         }

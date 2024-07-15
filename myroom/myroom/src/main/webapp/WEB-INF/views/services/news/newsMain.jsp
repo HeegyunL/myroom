@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ <%@ page import="org.json.JSONArray" %>
+ <%@ page import="org.json.JSONObject" %>
+ <%@ page import="java.net.URLEncoder" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +12,7 @@
 </head>
 <body>
 <!-- header start-->
-<jsp:include page="../common/header.jsp" />
+<jsp:include page="../../common/header.jsp" />
 <!-- header end-->
 
 <div class="bg-light">
@@ -17,21 +21,24 @@
             <h1>news</h1>
         </article>
 
+
+
         <article>
             <div class="container">
                 <ul style="list-style:none;">
+                <c:forEach items="${data}" var="data" begin="26" end="33">
                     <li class="mb-3">
-                        <div id="news-card-frame" class=" d-flex" style="">
-                            <div id="news-card-image" style="width:25%;background-image:url('../../../assets/img/건담1.jpeg'); ba" class=" bg-secondary"></div>
+                        <div id="news-card-frame" class=" d-flex post" style="">
+                            <div id="news-card-image" style="width:25%;background-image:url('${data.displayUrl}');" class=" bg-secondary"></div>
                             <div style="width:75%;" class="p-3">
-                                <p>안녕하세요</p>
-                                <p>2027년을 기준으로 새로운 건담이 출시됩니다. </p>
+                                <p>${data.caption}</p>
                             </div>
                         </div>
                     </li>
+                </c:forEach>
                     <li>
                         <div id="news-card-frame" class=" d-flex" style="">
-                            <div id="news-card-image" style="width:25%;background-image:url('../../../assets/img/건담2.jpeg'); ba" class=" bg-secondary"></div>
+                            <div id="news-card-image" style="width:25%;background-image:url('../../../assets/img/건담2.jpeg') " class=" bg-secondary"></div>
                             <div style="width:75%;" class="p-3">
                                 <p><속보>핑크피카츄 생겨버림</p>
                                 <p>핑크 피카츄가 생겼어요<br>
@@ -46,7 +53,7 @@
 </div>
 
 <!-- footer start-->
-<jsp:include page="../common/footer.jsp" />
+<jsp:include page="../../common/footer.jsp" />
 <!-- footer end-->
 </body>
 </html>

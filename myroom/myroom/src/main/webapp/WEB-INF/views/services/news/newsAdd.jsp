@@ -7,7 +7,7 @@
 </head>
 <body>
 <!-- header start-->
-<jsp:include page="../common/header.jsp" />
+<jsp:include page="../../common/header.jsp" />
 <!-- header end-->
 
 <div>
@@ -61,7 +61,7 @@
 </div>
 
 <!-- footer start-->
-<jsp:include page="../common/footer.jsp" />
+<jsp:include page="../../common/footer.jsp" />
 <!-- footer end-->
 </body>
 </html>
