@@ -25,18 +25,7 @@
         </article>
         <article class=" ">
             <div id="columns" >
-                 <!--
-                 <figure ><img  src="../../../assets/img/건담1.jpeg" onclick="location.href='./'"></figure>
-                 <figure ><img  src="../../../assets/img/건담2.jpeg" onclick="location.href='./'"></figure>
-                 <figure ><img  src="../../../assets/img/스탠드조명.png" onclick="location.href='./'"></figure>
-                 <figure ><img  src="../../../assets/img/책상.png" onclick="location.href='./'"></figure>
-                 <figure ><img  src="../../../assets/img/책상.png" onclick="location.href='./'"></figure>
-                 -->
                  <c:forEach var="blog" items="${blog}" varStatus="status">
-                 <script>
-
-
-                 </script>
                  <figure ><img  src="${blog.fileUrl}" onclick="location.href='/work/${blog.id}'"></figure>
                  </c:forEach>
             </div>

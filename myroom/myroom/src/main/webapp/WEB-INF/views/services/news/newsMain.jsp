@@ -26,8 +26,8 @@
         <article>
             <div class="container">
                 <ul style="list-style:none;">
-                <c:forEach items="${data}" var="data"  >
-                    <li class="mb-3">
+                <c:forEach items="${data}" var="data" varStatus="status" >
+                    <li class="mb-3" onclick="location.href='/news/${status.index}'">
                         <div id="news-card-frame" class=" d-flex post" style="">
                             <div id="news-card-image" style="width:25%;background-image:url('${data.displayUrl}');" class=" bg-secondary"></div>
                             <div style="width:75%;" class="p-3">
@@ -36,16 +36,6 @@
                         </div>
                     </li>
                 </c:forEach>
-                    <li>
-                        <div id="news-card-frame" class=" d-flex" style="">
-                            <div id="news-card-image" style="width:25%;background-image:url('../../../assets/img/건담2.jpeg') " class=" bg-secondary"></div>
-                            <div style="width:75%;" class="p-3">
-                                <p><속보>핑크피카츄 생겨버림</p>
-                                <p>핑크 피카츄가 생겼어요<br>
-                                 많관부</p>
-                            </div>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </article>
