@@ -3,11 +3,12 @@ package com.example.myroom.security;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Slf4j
-@RestController
+@Controller
 @RequiredArgsConstructor
 @RequestMapping("/members")
 public class MemberController {
@@ -24,32 +25,24 @@ public class MemberController {
 
 
     @PostMapping("/login")
-    public ModelAndView signIn(@RequestBody SignInDto signInDto){
-        String username = signInDto.getMemberId();
+    public JwtToken signIn(@RequestBody SignInDto signInDto){
+        String username = signInDto.getUserName();
         String password = signInDto.getPassword();
         JwtToken jwtToken = memberService.signIn(username, password);
 
         log.info("request username = {}, password = {}", username, password);
         log.info("jwtToken accessToken = {}, refreshToken = {}",jwtToken.getAccessToken(),
-        jwtToken.getRefreshToken());
+                jwtToken.getRefreshToken());
 
-        ModelAndView mav = new ModelAndView();
-
-        mav.setViewName("services/test");
-        return mav;
+        return jwtToken;
 
 
     }
-
     @PostMapping("/test")
-    public String test(){
-        return SecurityUtil.getCurrentUsername();
+    public String test() {
+        return "success";
     }
 
-    @PostMapping("/signUp")
-    public ResponseEntity<MemberDto> signUp(@RequestBody SignUpDto signUpDto) {
-        MemberDto savedMemberDto = memberService.signUp(signUpDto);
-        return ResponseEntity.ok(savedMemberDto);
-    }
+
 
 }

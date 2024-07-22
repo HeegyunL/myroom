@@ -20,7 +20,6 @@
 
         <!-- 작성 페이지 -->
         <article >
-          <form class="was-validated" action="/work/add" method="post" enctype="multipart/form-data">
               <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <textarea class="form-control" name="title" id="title" placeholder="Required example textarea" required>${blog.title}</textarea>
@@ -45,14 +44,13 @@
             <div class="mb-3">
 
             <p id="img-name">${blog.fileName}</p>
-            <img id="blog-img" src="/assets/img/work/${blog.fileName}" style="max-width:50%;">
+            <img id="blog-img" src="${blog.fileUrl}" style="max-width:50%;">
               <div class="invalid-feedback">Example invalid form file feedback</div>
             </div>
 
             <div class="mb-3 mt-5 text-end">
-              <button class="btn btn-primary " type="submit" >Submit form</button>
+              <button class="btn btn-primary " type="button" onclick="location.href='/'" >Submit form</button>
             </div>
-          </form>
         </article>
         <!-- 작성 끝 -->
     </section>

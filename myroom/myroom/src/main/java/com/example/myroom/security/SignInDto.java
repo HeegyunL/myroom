@@ -3,9 +3,12 @@ package com.example.myroom.security;
 
 import lombok.*;
 
-@Data
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class SignInDto {
-    private String memberId;
+    private String userName;
     private String password;
 
 }

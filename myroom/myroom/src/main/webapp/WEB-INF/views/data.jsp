@@ -12,7 +12,7 @@
 <body>
     <h1>Instagram Posts</h1>
  <script>
-     var msg = "<c:out value='${data}' />"
+     var msg = "<c:out value='${fileName}' />"
 
 
      alert(msg);

@@ -70,26 +70,7 @@ public class newsController {
         mav.setViewName("services/news/newsMain");
         return mav;
     }
-    @GetMapping("/fetchData")
-    public String fetchData(Model model,@Value("${APIFY_API_URL}") String apify) {
 
-        try {
-            String data = apifyService.fetchData(apify);
-            ObjectMapper objectMapper = new ObjectMapper();
-
-            //List안에 map형식으로 받아야 한다. [{"":"","":""},{"":"","":""}]형식이기
-            List<Map<String, String>> instaMap = objectMapper.readValue(data, List.class);
-            model.addAttribute("data", instaMap);
-            System.out.println(data);
-        } catch (HttpClientErrorException e) {
-            model.addAttribute("error", "Failed to fetch data from Apify: " + e.getStatusCode() + " " + e.getResponseBodyAsString());
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-
-
-        return "data"; // JSP 파일 경로
-    }
 
 
     @PostMapping("/news/add")
