@@ -4,9 +4,9 @@
 <html>
 <head>
 </head>
-<body>
+<body >
 
-<div class="">
+<div class="footer">
   <p>footer</p>
 
 </div>

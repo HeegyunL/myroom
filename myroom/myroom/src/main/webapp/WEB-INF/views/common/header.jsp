@@ -12,12 +12,12 @@
 
 <title>welcome to myRoom</title>
 </head>
-<body>
+<body >
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="/assets/bootstrap-5.3.3/js/bootstrap.js"></script>
 
 
-<div class="">
+<div class="header" >
 
     <nav class="navbar navbar-expand-lg ">
       <div class="container-fluid">

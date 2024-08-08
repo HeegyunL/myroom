@@ -1,8 +1,34 @@
-.first-carousel{
-height:50vh;
-margin-top:1rem;
-}
+
 .card{
-width:18rem;
-margin-top:5rem;
+}
+
+body{
+height:100%;}
+
+.contain{
+height:100%;
+display:grid;
+grid-template-areas:
+		"header header header"
+		" main  main   main  "
+		" main  main   main  "
+		"footer footer footer";
+gap:10px;
+}
+
+.header{
+grid-area:header;
+width:100%;
+height:
+border-bottom:1px solid #cecece;
+}
+.main-frame{
+grid-area:main;
+padding-top:1px;
+width:80%;
+margin:auto;
+}
+.footer{
+grid-area:footer;
+border-top:1px solid #cecece;
 }

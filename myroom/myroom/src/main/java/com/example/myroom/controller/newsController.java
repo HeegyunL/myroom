@@ -60,7 +60,7 @@ public class newsController {
             instaMap.sort(Comparator.comparing(
                     (Map<String,String> map )-> (String)map.get("timestamp")).reversed());
 
-
+            System.out.println(instaMap.toString());
             model.addAttribute("data", instaMap);
         } catch (HttpClientErrorException e) {
             model.addAttribute("error", "Failed to fetch data from Apify: " + e.getStatusCode() + " " + e.getResponseBodyAsString());

@@ -39,6 +39,7 @@ public class MainController {
 		ModelAndView mav = new ModelAndView();
 		List<Blog> blogList = blogRepo.findAll();
 
+		mav.addObject("blog", blogList);
 		mav.setViewName("index");
 		return mav;
 	}
@@ -67,7 +68,6 @@ public class MainController {
 
 
 		mav.addObject("blog", blogList);
-		System.out.println(blogList);
 		mav.setViewName("services/gallery/galleryMain");
 		return mav;
 	}
